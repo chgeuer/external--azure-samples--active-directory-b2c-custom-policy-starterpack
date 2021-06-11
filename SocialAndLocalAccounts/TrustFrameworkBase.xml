@@ -4,9 +4,9 @@
   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
-  TenantId="yourtenant.onmicrosoft.com"
+  TenantId="chgeuerb2cfasthack.onmicrosoft.com"
   PolicyId="B2C_1A_TrustFrameworkBase"
-  PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
+  PublicPolicyUri="http://chgeuerb2cfasthack.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
 
   <BuildingBlocks>
     <ClaimsSchema>
@@ -301,6 +301,7 @@
         <UserInputType>TextBox</UserInputType>
       </ClaimType>
 
+
     </ClaimsSchema>
 
     <ClaimsTransformations>
@@ -450,21 +451,14 @@
     </ContentDefinitions>
   </BuildingBlocks>
 
-  <!--
-        A list of all the claim providers that can be used in the technical policies. If a claims provider is not listed 
-        in this section, then it cannot be used in a technical policy.
-    -->
   <ClaimsProviders>
 
-        <ClaimsProvider>
-      <!-- The following Domain element allows this profile to be used if the request comes with domain_hint 
-           query string parameter, e.g. domain_hint=facebook.com  -->
+    <ClaimsProvider>
       <Domain>facebook.com</Domain>
       <DisplayName>Facebook</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="Facebook-OAUTH">
-          <!-- The text in the following DisplayName element is shown to the user on the claims provider 
-               selection screen. -->
+
           <DisplayName>Facebook</DisplayName>
           <Protocol Name="OAuth2" />
           <Metadata>
@@ -473,8 +467,6 @@
             <Item Key="AccessTokenEndpoint">https://graph.facebook.com/oauth/access_token</Item>
             <Item Key="HttpBinding">GET</Item>
             <Item Key="UsePolicyInRedirectUri">0</Item>
-
-            <!-- The Facebook required HTTP GET method, but the access token response is in JSON format from 3/27/2017 -->
             <Item Key="AccessTokenResponseFormat">json</Item>
           </Metadata>
           <CryptographicKeys>
